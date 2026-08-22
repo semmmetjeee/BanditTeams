@@ -1,5 +1,5 @@
 # PlaceholderAPI
-# %banditteams_name% - The player's crew name, or "No Team".
+# %banditteams_name% - The player's crew name, or "No Crew".
 
 custom-command:
   # Set enabled to false to disable /crew and its aliases. /banditteams reload always stays available.
@@ -15,7 +15,7 @@ messages:
   prefix: "&#d9a441&lCREW &8» &f"
   no-permission: "%prefix%&cYou do not have permission."
   player-only: "%prefix%&cOnly players can do this."
-  usage: "%prefix%&7/crew create <name>, invite <player>, accept <player>, deny <player>, list, members, kick <player>, joinrequest <team>, acceptrequest <player>, settings, chat <message>, togglechat"
+  usage: "%prefix%&7/crew create <name>, invite <player>, accept <player>, deny <player>, list, members, kick <player>, joinrequest <crew>, acceptrequest <player>, settings, chat <message>, togglechat"
   invalid-name: "%prefix%&cCrew names must be 2 to 10 characters long and use only letters and numbers."
   name-taken: "%prefix%&cThat crew name is already taken."
   already-in-team: "%prefix%&cYou are already in a crew."
