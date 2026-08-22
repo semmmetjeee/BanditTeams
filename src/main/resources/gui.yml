@@ -1,0 +1,32 @@
+shared:
+  border:
+    material: BLACK_STAINED_GLASS_PANE
+    name: " "
+  navigation:
+    previous:
+      slot: 48
+      material: ARROW
+      name: "&#d9a441← Previous Page"
+    page:
+      slot: 49
+      material: PAPER
+      name: "&fPage &#d9a441%page%&f/&#d9a441%pages%"
+    next:
+      slot: 50
+      material: ARROW
+      name: "&#d9a441Next Page →"
+
+members:
+  title: "&#d9a441&l%team% MEMBERS"
+  member:
+    name: "&#d9a441%player%"
+    lore:
+      - "&7Role: %role%"
+
+teams:
+  title: "&#d9a441&lALL TEAMS"
+  team:
+    name: "&#d9a441[%team%]"
+    lore:
+      - "&7Leader: &#d9a441%leader%"
+      - "&7Members: &#d9a441%members%&7/&f%max_members%"
