@@ -29,7 +29,7 @@ teams:
     name: "&#d9a441[%team%]"
     lore:
       - "&7Leader: &#d9a441%leader%"
-      - "&7Members: &#d9a441%members%&7/&f%max_members%"
+      - "&7Members: &#d9a441%members%&7/&f%max_members%"\n      - ""\n      - "%join_status%"
   create:
     slot: 46
     material: EMERALD
