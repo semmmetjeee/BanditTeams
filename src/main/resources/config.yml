@@ -1,5 +1,9 @@
 # PlaceholderAPI
-# %banditteams_name% - The player's crew name, or "No Crew".
+# %banditteams_name% - The player's crew name, or placeholders.default-name.
+
+placeholders:
+  # Output for %banditteams_name% when the player is not in a crew.
+  default-name: "No Crew"
 
 custom-command:
   # Set enabled to false to disable /crew and its aliases. /banditteams reload always stays available.
@@ -15,7 +19,7 @@ messages:
   prefix: "&#d9a441&lCREW &8» &f"
   no-permission: "%prefix%&cYou do not have permission."
   player-only: "%prefix%&cOnly players can do this."
-  usage: "%prefix%&7/crew create <name>, invite <player>, accept <player>, deny <player>, list, members, kick <player>, joinrequest <crew>, acceptrequest <player>, settings, chat <message>, togglechat, leave, disband"
+  usage: "%prefix%&7/crew create <name>, invite <player>, accept <player>, deny <player>, list, members, kick <player>, joinrequest <crew>, acceptrequest <player>, settings, chat <message>, togglechat, sethome, home, leave, disband"
   invalid-name: "%prefix%&cCrew names must be 2 to 10 characters long and use only letters and numbers."
   name-taken: "%prefix%&cThat crew name is already taken."
   already-in-team: "%prefix%&cYou are already in a crew."
@@ -48,6 +52,9 @@ messages:
   cannot-kick-leader: "%prefix%&cYou cannot kick the crew leader."
   reloaded: "%prefix%&aBanditTeams reloaded. Crew commands were refreshed."
   reload-usage: "%prefix%&7Use: &f/banditteams reload &7or &f/banditteams admin disband <crew>"
+  home-set: "%prefix%&aCrew home set."
+  home-not-set: "%prefix%&cYour crew has not set a home yet."
+  home-teleported: "%prefix%&aTeleported to your crew home."
   left-crew: "%prefix%&7You left crew &#d9a441%team%&7."
   member-left: "%prefix%&#d9a441%player% &7left the crew."
   leader-cannot-leave: "%prefix%&cThe crew leader cannot leave. Use &f/crew disband &cto disband the crew."
