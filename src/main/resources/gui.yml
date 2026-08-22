@@ -30,3 +30,32 @@ teams:
     lore:
       - "&7Leader: &#d9a441%leader%"
       - "&7Members: &#d9a441%members%&7/&f%max_members%"
+  create:
+    slot: 46
+    material: EMERALD
+    name: "&#67e86b&lCREATE A TEAM"
+    lore:
+      - "&7Click to create a new team."
+
+settings:
+  title: "&#d9a441&l%team% SETTINGS"
+  requests:
+    slot: 11
+    enabled-material: LIME_DYE
+    disabled-material: RED_DYE
+    name: "&#d9a441Join Requests"
+    lore:
+      - "&7Allow players to request to join."
+      - "&7Current: %status%"
+      - ""
+      - "&eClick to toggle."
+  team-chat:
+    slot: 15
+    enabled-material: LIME_DYE
+    disabled-material: RED_DYE
+    name: "&#d9a441Team Chat"
+    lore:
+      - "&7Allow /team chat messages."
+      - "&7Current: %status%"
+      - ""
+      - "&eClick to toggle."
