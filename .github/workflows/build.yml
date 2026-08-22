@@ -1,0 +1,25 @@
+name: Build BanditTeams
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - run: mvn --batch-mode clean package
+      - uses: actions/upload-artifact@v4
+        with:
+          name: BanditTeams
+          path: target/BanditTeams-*.jar
+          if-no-files-found: error
