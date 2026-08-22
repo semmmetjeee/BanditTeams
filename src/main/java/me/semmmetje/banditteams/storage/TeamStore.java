@@ -1,6 +1,7 @@
 package me.semmmetje.banditteams.storage;
 
 import me.semmmetje.banditteams.BanditTeams;
+import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
@@ -10,16 +11,17 @@ import java.util.*;
 public final class TeamStore {
   private final BanditTeams plugin; private final File file; private final YamlConfiguration yaml; private final Map<String,Team> teams=new LinkedHashMap<>();
   public TeamStore(BanditTeams plugin){this.plugin=plugin;file=new File(plugin.getDataFolder(),"teams.yml");yaml=YamlConfiguration.loadConfiguration(file);load();}
-  private void load(){teams.clear();ConfigurationSection root=yaml.getConfigurationSection("teams");if(root==null)return;for(String key:root.getKeys(false)){ConfigurationSection s=root.getConfigurationSection(key);if(s==null)continue;try{String name=s.getString("name",key);UUID leader=UUID.fromString(Objects.requireNonNull(s.getString("leader")));Set<UUID> members=new LinkedHashSet<>();for(String raw:s.getStringList("members"))members.add(UUID.fromString(raw));members.add(leader);teams.put(key.toLowerCase(Locale.ROOT),new Team(name,leader,members,s.getBoolean("join-requests-enabled",true),s.getBoolean("team-chat-enabled",true)));}catch(Exception ex){plugin.getLogger().warning("Skipping invalid team '"+key+"'.");}}}
-  private void save(){yaml.set("teams",null);for(Team team:teams.values()){String base="teams."+team.name().toLowerCase(Locale.ROOT);yaml.set(base+".name",team.name());yaml.set(base+".leader",team.leader().toString());yaml.set(base+".members",team.members().stream().map(UUID::toString).toList());yaml.set(base+".join-requests-enabled",team.joinRequestsEnabled());yaml.set(base+".team-chat-enabled",team.teamChatEnabled());}try{yaml.save(file);}catch(IOException ex){plugin.getLogger().severe("Could not save teams.yml: "+ex.getMessage());}}
+  private void load(){teams.clear();ConfigurationSection root=yaml.getConfigurationSection("teams");if(root==null)return;for(String key:root.getKeys(false)){ConfigurationSection s=root.getConfigurationSection(key);if(s==null)continue;try{String name=s.getString("name",key);UUID leader=UUID.fromString(Objects.requireNonNull(s.getString("leader")));Set<UUID> members=new LinkedHashSet<>();for(String raw:s.getStringList("members"))members.add(UUID.fromString(raw));members.add(leader);teams.put(key.toLowerCase(Locale.ROOT),new Team(name,leader,members,s.getBoolean("join-requests-enabled",true),s.getBoolean("team-chat-enabled",true),s.getLocation("home")));}catch(Exception ex){plugin.getLogger().warning("Skipping invalid team '"+key+"'.");}}}
+  private void save(){yaml.set("teams",null);for(Team team:teams.values()){String base="teams."+team.name().toLowerCase(Locale.ROOT);yaml.set(base+".name",team.name());yaml.set(base+".leader",team.leader().toString());yaml.set(base+".members",team.members().stream().map(UUID::toString).toList());yaml.set(base+".join-requests-enabled",team.joinRequestsEnabled());yaml.set(base+".team-chat-enabled",team.teamChatEnabled());yaml.set(base+".home",team.home());}try{yaml.save(file);}catch(IOException ex){plugin.getLogger().severe("Could not save teams.yml: "+ex.getMessage());}}
   public synchronized boolean nameTaken(String name){return teams.containsKey(name.toLowerCase(Locale.ROOT));}
   public synchronized Collection<Team> allTeams(){return List.copyOf(teams.values());}
   public synchronized Team teamOf(UUID player){return teams.values().stream().filter(team->team.members().contains(player)).findFirst().orElse(null);}
-  public synchronized Team create(String name,UUID leader){if(nameTaken(name)||teamOf(leader)!=null)return null;Team team=new Team(name,leader,new LinkedHashSet<>(Set.of(leader)),true,true);teams.put(name.toLowerCase(Locale.ROOT),team);save();return team;}
+  public synchronized Team create(String name,UUID leader){if(nameTaken(name)||teamOf(leader)!=null)return null;Team team=new Team(name,leader,new LinkedHashSet<>(Set.of(leader)),true,true,null);teams.put(name.toLowerCase(Locale.ROOT),team);save();return team;}
   public synchronized boolean addMember(Team team,UUID player,int maximum){if(teamOf(player)!=null||team.members().size()>=maximum)return false;team.members().add(player);save();return true;}
   public synchronized boolean removeMember(Team team,UUID player){if(!team.members().remove(player))return false;if(team.members().isEmpty())teams.remove(team.name().toLowerCase(Locale.ROOT));save();return true;}
   public synchronized boolean disband(Team team){if(team==null||!teams.remove(team.name().toLowerCase(Locale.ROOT),team))return false;save();return true;}
   public synchronized boolean sameTeam(UUID first,UUID second){Team team=teamOf(first);return team!=null&&team.members().contains(second);}
-  public synchronized void setJoinRequests(Team team,boolean enabled){teams.put(team.name().toLowerCase(Locale.ROOT),new Team(team.name(),team.leader(),team.members(),enabled,team.teamChatEnabled()));save();}
-  public synchronized void setTeamChat(Team team,boolean enabled){teams.put(team.name().toLowerCase(Locale.ROOT),new Team(team.name(),team.leader(),team.members(),team.joinRequestsEnabled(),enabled));save();}
+  public synchronized void setJoinRequests(Team team,boolean enabled){teams.put(team.name().toLowerCase(Locale.ROOT),new Team(team.name(),team.leader(),team.members(),enabled,team.teamChatEnabled(),team.home()));save();}
+  public synchronized void setTeamChat(Team team,boolean enabled){teams.put(team.name().toLowerCase(Locale.ROOT),new Team(team.name(),team.leader(),team.members(),team.joinRequestsEnabled(),enabled,team.home()));save();}
+  public synchronized void setHome(Team team,Location home){teams.put(team.name().toLowerCase(Locale.ROOT),new Team(team.name(),team.leader(),team.members(),team.joinRequestsEnabled(),team.teamChatEnabled(),home.clone()));save();}
 }
