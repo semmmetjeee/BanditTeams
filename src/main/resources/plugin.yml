@@ -1,13 +1,15 @@
 name: BanditTeams
-version: 1.0.0
+version: 1.1.0
 main: me.semmmetje.banditteams.BanditTeams
 api-version: '1.21'
 author: Semmmetje
 softdepend: [PlaceholderAPI]
 commands:
-  team:
-    aliases: [teams]
-    description: Create and manage your team
+  banditteams:
+    description: Reload BanditTeams
+    usage: /banditteams reload
 permissions:
   banditteams.use:
     default: true
+  banditteams.admin:
+    default: op
