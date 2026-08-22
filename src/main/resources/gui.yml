@@ -24,7 +24,7 @@ members:
       - "&7Role: %role%"
 
 teams:
-  title: "&#d9a441&lALL TEAMS"
+  title: "&#d9a441&lALL CREWS"
   team:
     name: "&#d9a441[%team%]"
     lore:
@@ -35,9 +35,9 @@ teams:
   create:
     slot: 46
     material: EMERALD
-    name: "&#67e86b&lCREATE A TEAM"
+    name: "&#67e86b&lCREATE A CREW"
     lore:
-      - "&7Click to create a new team."
+      - "&7Click to create a new crew."
 
 settings:
   title: "&#d9a441&l%team% SETTINGS"
@@ -55,9 +55,9 @@ settings:
     slot: 15
     enabled-material: LIME_DYE
     disabled-material: RED_DYE
-    name: "&#d9a441Team Chat"
+    name: "&#d9a441Crew Chat"
     lore:
-      - "&7Allow /team chat messages."
+      - "&7Allow /crew chat messages."
       - "&7Current: %status%"
       - ""
       - "&eClick to toggle."
