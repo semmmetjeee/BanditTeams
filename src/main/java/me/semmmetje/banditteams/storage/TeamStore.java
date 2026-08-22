@@ -18,6 +18,7 @@ public final class TeamStore {
   public synchronized Team create(String name,UUID leader){if(nameTaken(name)||teamOf(leader)!=null)return null;Team team=new Team(name,leader,new LinkedHashSet<>(Set.of(leader)),true,true);teams.put(name.toLowerCase(Locale.ROOT),team);save();return team;}
   public synchronized boolean addMember(Team team,UUID player,int maximum){if(teamOf(player)!=null||team.members().size()>=maximum)return false;team.members().add(player);save();return true;}
   public synchronized boolean removeMember(Team team,UUID player){if(!team.members().remove(player))return false;if(team.members().isEmpty())teams.remove(team.name().toLowerCase(Locale.ROOT));save();return true;}
+  public synchronized boolean disband(Team team){if(team==null||!teams.remove(team.name().toLowerCase(Locale.ROOT),team))return false;save();return true;}
   public synchronized boolean sameTeam(UUID first,UUID second){Team team=teamOf(first);return team!=null&&team.members().contains(second);}
   public synchronized void setJoinRequests(Team team,boolean enabled){teams.put(team.name().toLowerCase(Locale.ROOT),new Team(team.name(),team.leader(),team.members(),enabled,team.teamChatEnabled()));save();}
   public synchronized void setTeamChat(Team team,boolean enabled){teams.put(team.name().toLowerCase(Locale.ROOT),new Team(team.name(),team.leader(),team.members(),team.joinRequestsEnabled(),enabled));save();}
