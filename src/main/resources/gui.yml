@@ -1,5 +1,10 @@
 # %online% and %last_seen% can be used in members.member.lore.
 # %last_seen% uses the format: 22 Aug. 2026. Supports & and &#RRGGBB colors.
+last-seen-output:
+  # Used for %last_seen% while the player is online.
+  online: "&#55E36A&lNow"
+  never: "&7Never"
+
 status-output:
   online: "&#55E36A&lONLINE"
   offline: "&#FF5C6C&lOFFLINE"
