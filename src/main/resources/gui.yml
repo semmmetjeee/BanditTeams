@@ -1,4 +1,5 @@
-# %online% can be used in members.member.lore. Supports & and &#RRGGBB colors.
+# %online% and %last_seen% can be used in members.member.lore.
+# %last_seen% uses the format: 22 Aug. 2026. Supports & and &#RRGGBB colors.
 status-output:
   online: "&#55E36A&lONLINE"
   offline: "&#FF5C6C&lOFFLINE"
@@ -27,7 +28,7 @@ members:
     name: "&#d9a441%player%"
     lore:
       - "&7Role: %role%"
-      - "&7Status: %online%"
+      - "&7Last seen: &f%last_seen%"
 
 teams:
   title: "&#d9a441&lALL CREWS"
