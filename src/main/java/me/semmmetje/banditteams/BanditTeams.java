@@ -23,8 +23,9 @@ public final class BanditTeams extends JavaPlugin {
     if(reload==null){getLogger().severe("Missing /banditteams command.");getServer().getPluginManager().disablePlugin(this);return;}
     reload.setExecutor((sender,unused,label,args)->{
       if(!sender.hasPermission("banditteams.admin")){command.send(sender,"no-permission",java.util.Map.of());return true;}
-      if(args.length!=1||!args[0].equalsIgnoreCase("reload")){command.send(sender,"reload-usage",java.util.Map.of());return true;}
-      reloadConfig();registerCrewCommand();command.send(sender,"reloaded",java.util.Map.of());return true;
+      if(args.length==1&&args[0].equalsIgnoreCase("reload")){reloadConfig();registerCrewCommand();command.send(sender,"reloaded",java.util.Map.of());return true;}
+      if(args.length>=1&&args[0].equalsIgnoreCase("admin")){return command.admin(sender,java.util.Arrays.copyOfRange(args,1,args.length));}
+      command.send(sender,"reload-usage",java.util.Map.of());return true;
     });
     getServer().getPluginManager().registerEvents(command,this);getServer().getPluginManager().registerEvents(new TeamPvpListener(this),this);getServer().getPluginManager().registerEvents(new TeamGui(this),this);
     if(getServer().getPluginManager().getPlugin("PlaceholderAPI")!=null){expansion=new TeamExpansion(this);expansion.register();}
