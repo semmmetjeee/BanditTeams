@@ -17,10 +17,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import java.io.File;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public final class TeamGui implements Listener {
-  private static final int[] CONTENT={10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43};
+  private static final int[] CONTENT={10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43}; private static final DateTimeFormatter LAST_SEEN=DateTimeFormatter.ofPattern("dd MMM. uuuu",Locale.ENGLISH).withZone(ZoneId.systemDefault());
   private final BanditTeams plugin; private YamlConfiguration gui;
   public TeamGui(BanditTeams plugin){this.plugin=plugin;load();}
   private void load(){gui=YamlConfiguration.loadConfiguration(new File(plugin.getDataFolder(),"gui.yml"));}
@@ -34,8 +37,9 @@ public final class TeamGui implements Listener {
   private void setNav(Inventory inv,String type,View view,String team,int page){setNav(inv,type,view,team,page,Map.of());}
   private void setNav(Inventory inv,String type,View view,String team,int page,Map<String,String> vars){String base="shared.navigation."+type;inv.setItem(gui.getInt(base+".slot"),item(material(base+".material",Material.PAPER),replace(gui.getString(base+".name"," "),vars),gui.getStringList(base+".lore").stream().map(line->replace(line,vars)).toList()));}
   private ItemStack settingItem(String key,boolean enabled){Map<String,String> vars=Map.of("status",enabled?"&aEnabled":"&cDisabled");return item(material(key+(enabled?".enabled-material":".disabled-material"),Material.LIME_DYE),replace(gui.getString(key+".name","Setting"),vars),gui.getStringList(key+".lore").stream().map(line->replace(line,vars)).toList());}
-  private ItemStack memberItem(UUID id,Team team){OfflinePlayer player=Bukkit.getOfflinePlayer(id);String playerName=name(id);String role=id.equals(team.leader())?"&#d9a441Leader":"&7Member";String status=gui.getString(player.isOnline()?"status-output.online":"status-output.offline",player.isOnline()?"&a&lONLINE":"&c&lOFFLINE");return head(player,gui.getString("members.member.name","%player%"),gui.getStringList("members.member.lore"),Map.of("player",playerName,"role",role,"online",status));}
+  private ItemStack memberItem(UUID id,Team team){OfflinePlayer player=Bukkit.getOfflinePlayer(id);String playerName=name(id);String role=id.equals(team.leader())?"&#d9a441Leader":"&7Member";String status=gui.getString(player.isOnline()?"status-output.online":"status-output.offline",player.isOnline()?"&a&lONLINE":"&c&lOFFLINE");return head(player,gui.getString("members.member.name","%player%"),gui.getStringList("members.member.lore"),Map.of("player",playerName,"role",role,"online",status,"last_seen",lastSeen(player)));}
   private ItemStack teamItem(Team team){OfflinePlayer leader=Bukkit.getOfflinePlayer(team.leader());return head(leader,gui.getString("teams.team.name","%team%"),gui.getStringList("teams.team.lore"),Map.of("team",team.name(),"leader",name(team.leader()),"members",String.valueOf(team.members().size()),"max_members",String.valueOf(plugin.getConfig().getInt("max-members",10)),"join_status",joinStatus(team)));}
+  private String lastSeen(OfflinePlayer player){long value=player.getLastSeen();return value<=0?"Never":LAST_SEEN.format(Instant.ofEpochMilli(value));}
   private String joinStatus(Team team){if(team.members().size()>=plugin.getConfig().getInt("max-members",10))return "&cThis team is full.";if(!team.joinRequestsEnabled())return "&cJoin requests are disabled.";return "&e→ Send a join request";}
   private ItemStack head(OfflinePlayer owner,String title,List<String> lore,Map<String,String> values){ItemStack stack=new ItemStack(Material.PLAYER_HEAD);SkullMeta meta=(SkullMeta)stack.getItemMeta();meta.setOwningPlayer(owner);meta.setDisplayName(Text.color(replace(title,values)));meta.setLore(lore.stream().map(line->Text.color(replace(line,values))).toList());stack.setItemMeta(meta);return stack;}
   private ItemStack item(Material material,String title,List<String> lore){ItemStack stack=new ItemStack(material);ItemMeta meta=stack.getItemMeta();meta.setDisplayName(Text.color(title));meta.setLore(lore.stream().map(Text::color).toList());stack.setItemMeta(meta);return stack;}
