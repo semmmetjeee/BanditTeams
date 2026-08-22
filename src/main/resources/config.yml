@@ -2,12 +2,14 @@
 # %banditteams_name% - The player's team name, or "No Team".
 
 invite-duration-seconds: 60
+# Maximum number of members including the team leader.
+max-members: 10
 
 messages:
   prefix: "&#d9a441&lTEAMS &8» &f"
   no-permission: "%prefix%&cYou do not have permission."
   player-only: "%prefix%&cOnly players can do this."
-  usage: "%prefix%&7/team create <name>, invite <player>, accept <player>, deny <player>, list, kick <player>"
+  usage: "%prefix%&7/team create <name>, invite <player>, accept <player>, deny <player>, list, members, kick <player>"
   invalid-name: "%prefix%&cTeam names must be 2 to 10 characters long and use only letters, numbers, _ or -."
   name-taken: "%prefix%&cThat team name is already taken."
   already-in-team: "%prefix%&cYou are already in a team."
@@ -16,6 +18,7 @@ messages:
   leader-only: "%prefix%&cOnly the team leader can do that."
   player-not-found: "%prefix%&cPlayer not found."
   target-in-team: "%prefix%&cThat player is already in a team."
+  team-full: "%prefix%&cYour team is already full."
   invited: "%prefix%&aYou invited &#d9a441%player% &ato team &#d9a441%team%&a."
   invite-received: "%prefix%&#d9a441%player% &finvited you to team &#d9a441%team%&f. Type &#d9a441/team accept %player% &fwithin %duration% seconds."
   invite-expired: "%prefix%&cThat invite has expired or does not exist."
@@ -26,4 +29,3 @@ messages:
   kicked-target: "%prefix%&cYou were kicked from team &#d9a441%team%&c."
   cannot-kick-leader: "%prefix%&cYou cannot kick the team leader."
   friendly-fire: "&#d9a441&lTEAMS &8» &cYou cannot damage a team member."
-  list: "%prefix%&fTeam: &#d9a441%team% &8| &fLeader: &#d9a441%leader% &8| &fMembers: &#d9a441%members%"
