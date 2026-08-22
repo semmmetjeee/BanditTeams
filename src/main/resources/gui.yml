@@ -1,3 +1,8 @@
+# %online% can be used in members.member.lore. Supports & and &#RRGGBB colors.
+status-output:
+  online: "&#55E36A&lONLINE"
+  offline: "&#FF5C6C&lOFFLINE"
+
 shared:
   border:
     material: BLACK_STAINED_GLASS_PANE
@@ -22,6 +27,7 @@ members:
     name: "&#d9a441%player%"
     lore:
       - "&7Role: %role%"
+      - "&7Status: %online%"
 
 teams:
   title: "&#d9a441&lALL CREWS"
