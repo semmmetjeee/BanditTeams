@@ -14,20 +14,20 @@ import java.util.Arrays;
 import java.util.List;
 
 public final class BanditTeams extends JavaPlugin {
-  private TeamStore teams; private TeamExpansion expansion; private TeamCommand command; private Command crewCommand;
+  private TeamStore teams; private TeamExpansion expansion; private TeamCommand command; private TeamGui gui; private Command crewCommand;
 
   @Override public void onEnable(){
-    saveDefaultConfig();saveResource("gui.yml",false);teams=new TeamStore(this);command=new TeamCommand(this);
+    saveDefaultConfig();saveResource("gui.yml",false);teams=new TeamStore(this);gui=new TeamGui(this);command=new TeamCommand(this);
     registerCrewCommand();
     PluginCommand reload=getCommand("banditteams");
     if(reload==null){getLogger().severe("Missing /banditteams command.");getServer().getPluginManager().disablePlugin(this);return;}
     reload.setExecutor((sender,unused,label,args)->{
       if(!sender.hasPermission("banditteams.admin")){command.send(sender,"no-permission",java.util.Map.of());return true;}
-      if(args.length==1&&args[0].equalsIgnoreCase("reload")){reloadConfig();registerCrewCommand();command.send(sender,"reloaded",java.util.Map.of());return true;}
+      if(args.length==1&&args[0].equalsIgnoreCase("reload")){reloadConfig();gui.reload();registerCrewCommand();command.send(sender,"reloaded",java.util.Map.of());return true;}
       if(args.length>=1&&args[0].equalsIgnoreCase("admin")){return command.admin(sender,java.util.Arrays.copyOfRange(args,1,args.length));}
       command.send(sender,"reload-usage",java.util.Map.of());return true;
     });
-    getServer().getPluginManager().registerEvents(command,this);getServer().getPluginManager().registerEvents(new TeamPvpListener(this),this);getServer().getPluginManager().registerEvents(new TeamGui(this),this);
+    getServer().getPluginManager().registerEvents(command,this);getServer().getPluginManager().registerEvents(new TeamPvpListener(this),this);getServer().getPluginManager().registerEvents(gui,this);
     if(getServer().getPluginManager().getPlugin("PlaceholderAPI")!=null){expansion=new TeamExpansion(this);expansion.register();}
   }
 
@@ -47,4 +47,5 @@ public final class BanditTeams extends JavaPlugin {
   @Override public void onDisable(){if(crewCommand!=null)crewCommand.unregister(Bukkit.getCommandMap());if(expansion!=null)expansion.unregister();}
   public TeamStore teams(){return teams;}
   public TeamCommand command(){return command;}
+  public TeamGui gui(){return gui;}
 }

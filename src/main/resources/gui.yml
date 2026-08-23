@@ -52,24 +52,31 @@ teams:
       - "&7Click to create a new crew."
 
 settings:
-  title: "&#d9a441&l%team% SETTINGS"
+  rows: 5
+  title: "&rCrew Settings"
   requests:
-    slot: 11
+    slot: 21
     enabled-material: LIME_DYE
     disabled-material: RED_DYE
-    name: "&#d9a441Join Requests"
+    name: "&#e3262e&lJOIN REQUESTS"
     lore:
-      - "&7Allow players to request to join."
-      - "&7Current: %status%"
       - ""
-      - "&eClick to toggle."
+      - "&fAllow players to send a request"
+      - "&fto join your crew."
+      - ""
+      - "&#f4b52b&l| &fStatus: &#f4b52b%status%"
+      - ""
+      - "&#f4b52b→ &fClick to toggle."
   team-chat:
-    slot: 15
+    slot: 23
     enabled-material: LIME_DYE
     disabled-material: RED_DYE
-    name: "&#d9a441Crew Chat"
+    name: "&#e3262e&lCREW CHAT"
     lore:
-      - "&7Allow /crew chat messages."
-      - "&7Current: %status%"
       - ""
-      - "&eClick to toggle."
+      - "&fAllow crew members to chat privately"
+      - "&fwith each other using &e/crew chat&f."
+      - ""
+      - "&#f4b52b&l| &fStatus: &#f4b52b%status%"
+      - ""
+      - "&#f4b52b→ &fClick to toggle."
