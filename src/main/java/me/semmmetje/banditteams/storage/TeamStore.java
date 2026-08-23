@@ -23,5 +23,5 @@ public final class TeamStore {
   public synchronized boolean sameTeam(UUID first,UUID second){Team team=teamOf(first);return team!=null&&team.members().contains(second);}
   public synchronized void setJoinRequests(Team team,boolean enabled){teams.put(team.name().toLowerCase(Locale.ROOT),new Team(team.name(),team.leader(),team.members(),enabled,team.teamChatEnabled(),team.home()));save();}
   public synchronized void setTeamChat(Team team,boolean enabled){teams.put(team.name().toLowerCase(Locale.ROOT),new Team(team.name(),team.leader(),team.members(),team.joinRequestsEnabled(),enabled,team.home()));save();}
-  public synchronized void setHome(Team team,Location home){teams.put(team.name().toLowerCase(Locale.ROOT),new Team(team.name(),team.leader(),team.members(),team.joinRequestsEnabled(),team.teamChatEnabled(),home.clone()));save();}
+  public synchronized void setHome(Team team,Location home){teams.put(team.name().toLowerCase(Locale.ROOT),new Team(team.name(),team.leader(),team.members(),team.joinRequestsEnabled(),team.teamChatEnabled(),home==null?null:home.clone()));save();}
 }
