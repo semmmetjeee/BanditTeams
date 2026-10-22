@@ -72,16 +72,20 @@ teams:
       - "&7Leden: &#d9a441%members%&7/&f%max_members%"
       - ""
       - "%join_status%"
+  status:
+    full: "&cDit team zit vol."
+    closed: "&cDit team accepteert geen verzoeken."
+    open: "&#f4b52b→ &fKlik om een joinverzoek te sturen."
   create:
     slot: 46
     material: EMERALD
     name: "&#67e86b&lTEAM AANMAKEN"
     lore:
-      - "&7Click to create a new crew."
+      - "&7Klik om een team aan te maken."
 
 settings:
   rows: 5
-  title: "&rCrew Settings"
+  title: "&#d9a441&lTEAMINSTELLINGEN"
   back:
     slot: 40
     material: ARROW
@@ -96,7 +100,7 @@ settings:
     lore:
       - ""
       - "&fSta spelers toe om een verzoek"
-      - "&fte sturen om je team te joinen."
+      - "&fte sturen om lid te worden."
       - ""
       - "&#f4b52b&l| &fStatus: &#f4b52b%status%"
       - ""
