@@ -8,6 +8,10 @@ commands:
   banditteams:
     description: Reload BanditTeams
     usage: /banditteams reload
+  teams:
+    description: Open the teams menu
+    usage: /teams
+    aliases: [team]
 permissions:
   banditteams.use:
     default: true
