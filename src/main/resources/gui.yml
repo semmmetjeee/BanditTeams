@@ -2,8 +2,8 @@
 # %last_seen% uses the format: 22 Aug. 2026. Supports & and &#RRGGBB colors.
 last-seen-output:
   # Used for %last_seen% while the player is online.
-  online: "&#55E36A&lNow"
-  never: "&7Never"
+  online: "&#55E36A&lNu"
+  never: "&7Nooit"
 
 status-output:
   online: "&#55E36A&lONLINE"
@@ -17,62 +17,65 @@ shared:
     slot-45: 40
     slot-54: 52
     material: ARROW
-    name: "&#d9a441&l← GO BACK"
+    name: "&#d9a441&l← TERUG"
     lore:
-      - "&7Return to the previous menu."
+      - "&7Terug naar het vorige menu."
   navigation:
     previous:
       slot: 48
       material: ARROW
-      name: "&#d9a441← Previous Page"
+      name: "&#d9a441← Vorige pagina"
     page:
       slot: 49
       material: PAPER
-      name: "&fPage &#d9a441%page%&f/&#d9a441%pages%"
+      name: "&fPagina &#d9a441%page%&f/&#d9a441%pages%"
     next:
       slot: 50
       material: ARROW
-      name: "&#d9a441Next Page →"
+      name: "&#d9a441Volgende pagina →"
 
 members:
-  title: "&#d9a441&l%team% MEMBERS"
+  title: "&#d9a441&lLEDEN VAN %team%"
   back:
     slot: 52
     material: ARROW
-    name: "&#d9a441&l← GO BACK"
+    name: "&#d9a441&l← TERUG"
     lore:
-      - "&7Return to team management."
+      - "&7Terug naar teambeheer."
   member:
     name: "&#d9a441%player%"
+    leader-role: "&#d9a441Leider"
+    member-role: "&7Lid"
+    kick-lore: "&cKlik om dit lid uit het team te zetten."
     lore:
-      - "&7Role: %role%"
-      - "&7Last seen: &f%last_seen%"
+      - "&7Rol: %role%"
+      - "&7Laatst gezien: &f%last_seen%"
   invite:
     slot: 45
     material: EMERALD
-    name: "&#67e86b&lINVITE MEMBER"
+    name: "&#67e86b&lLID UITNODIGEN"
     lore:
-      - "&7Invite another player to your team."
+      - "&7Nodig iemand uit voor je team."
 
 teams:
-  title: "&#d9a441&lALL CREWS"
+  title: "&#d9a441&lALLE TEAMS"
   back:
     slot: 52
     material: ARROW
-    name: "&#d9a441&l← GO BACK"
+    name: "&#d9a441&l← TERUG"
     lore:
-      - "&7Return to the teams menu."
+      - "&7Terug naar het teammenu."
   team:
     name: "&#d9a441[%team%]"
     lore:
-      - "&7Leader: &#d9a441%leader%"
-      - "&7Members: &#d9a441%members%&7/&f%max_members%"
+      - "&7Leider: &#d9a441%leader%"
+      - "&7Leden: &#d9a441%members%&7/&f%max_members%"
       - ""
       - "%join_status%"
   create:
     slot: 46
     material: EMERALD
-    name: "&#67e86b&lCREATE A CREW"
+    name: "&#67e86b&lTEAM AANMAKEN"
     lore:
       - "&7Click to create a new crew."
 
@@ -82,47 +85,47 @@ settings:
   back:
     slot: 40
     material: ARROW
-    name: "&#d9a441&l← GO BACK"
+    name: "&#d9a441&l← TERUG"
     lore:
-      - "&7Return to team management."
+      - "&7Terug naar teambeheer."
   requests:
     slot: 21
     enabled-material: LIME_DYE
     disabled-material: RED_DYE
-    name: "&#e3262e&lJOIN REQUESTS"
+    name: "&#d9a441&lJOINVERZOEKEN"
     lore:
       - ""
-      - "&fAllow players to send a request"
-      - "&fto join your crew."
+      - "&fSta spelers toe om een verzoek"
+      - "&fte sturen om je team te joinen."
       - ""
       - "&#f4b52b&l| &fStatus: &#f4b52b%status%"
       - ""
-      - "&#f4b52b→ &fClick to toggle."
+      - "&#f4b52b→ &fKlik om aan/uit te zetten."
   friendly-fire:
     slot: 25
     enabled-material: LIME_DYE
     disabled-material: RED_DYE
-    name: "&#e3262e&lTEAM PVP"
+    name: "&#d9a441&lTEAM-PVP"
     lore:
       - ""
-      - "&fAllow team members to damage each other."
+      - "&fSta toe dat teamleden elkaar raken."
       - ""
       - "&#f4b52b&l| &fStatus: &#f4b52b%status%"
       - ""
-      - "&#f4b52b→ &fClick to toggle."
+      - "&#f4b52b→ &fKlik om aan/uit te zetten."
   team-chat:
     slot: 23
     enabled-material: LIME_DYE
     disabled-material: RED_DYE
-    name: "&#e3262e&lCREW CHAT"
+    name: "&#d9a441&lTEAMCHAT"
     lore:
       - ""
-      - "&fAllow crew members to chat privately"
-      - "&fwith each other using &e/crew chat&f."
+      - "&fSta teamleden toe privé te chatten"
+      - "&fvia &e/crew chat&f."
       - ""
       - "&#f4b52b&l| &fStatus: &#f4b52b%status%"
       - ""
-      - "&#f4b52b→ &fClick to toggle."
+      - "&#f4b52b→ &fKlik om aan/uit te zetten."
 
 # Main menu opened by /teams.
 main:
@@ -131,64 +134,64 @@ main:
   back:
     slot: 40
     material: ARROW
-    name: "&#d9a441&l← GO BACK"
+    name: "&#d9a441&l← TERUG"
     lore:
-      - "&7Close the teams menu."
+      - "&7Sluit het teammenu."
   finder:
     slot: 20
     material: COMPASS
-    name: "&#d9a441&lTEAMS FINDER"
+    name: "&#d9a441&lTEAMS BEKIJKEN"
     lore:
-      - "&7Browse all existing teams."
+      - "&7Bekijk alle bestaande teams."
       - ""
       - "&#f4b52b→ &fClick to browse teams."
   manage:
     slot: 24
     material: CLOCK
-    name: "&#d9a441&lMANAGE TEAM"
+    name: "&#d9a441&lTEAM BEHEREN"
     lore:
-      - "&7Manage your current team."
+      - "&7Beheer je huidige team."
       - ""
       - "&#f4b52b→ &fClick to manage."
   create:
     slot: 24
     material: EMERALD
-    name: "&#67e86b&lCREATE TEAM"
+    name: "&#67e86b&lTEAM AANMAKEN"
     lore:
-      - "&7Create your own team."
+      - "&7Maak je eigen team aan."
       - ""
       - "&#f4b52b→ &fClick to create."
 
 manage:
   rows: 5
-  title: "&#d9a441&lMANAGE %team%"
+  title: "&#d9a441&lTEAM BEHEREN: %team%"
   back:
     slot: 40
     material: ARROW
-    name: "&#d9a441&l← GO BACK"
+    name: "&#d9a441&l← TERUG"
     lore:
-      - "&7Return to the teams menu."
+      - "&7Terug naar het teammenu."
   settings:
     slot: 21
     material: REPEATER
-    name: "&#d9a441&lSETTINGS"
+    name: "&#d9a441&lINSTELLINGEN"
     lore:
-      - "&7Configure your team settings."
+      - "&7Pas je teaminstellingen aan."
       - ""
       - "&#f4b52b→ &fClick to open settings."
   members:
     slot: 23
     material: PLAYER_HEAD
-    name: "&#d9a441&lMEMBERS"
+    name: "&#d9a441&lLEDEN"
     lore:
-      - "&7View and manage team members."
+      - "&7Bekijk en beheer je teamleden."
       - ""
       - "&#f4b52b→ &fClick to view members."
   invite:
     slot: 31
     material: EMERALD
-    name: "&#67e86b&lINVITE MEMBER"
+    name: "&#67e86b&lLID UITNODIGEN"
     lore:
-      - "&7Invite a player to your team."
+      - "&7Nodig iemand uit voor je team."
       - ""
       - "&#f4b52b→ &fClick to invite."
