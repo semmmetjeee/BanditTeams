@@ -1,5 +1,5 @@
 name: BanditTeams
-version: 1.1.0
+version: 1.2.0
 main: me.semmmetje.banditteams.BanditTeams
 api-version: '1.21'
 author: Semmmetje
@@ -12,4 +12,7 @@ permissions:
   banditteams.use:
     default: true
   banditteams.admin:
+    default: op
+  banditteams.spy:
+    description: View private crew chat spy messages
     default: op

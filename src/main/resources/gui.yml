@@ -1,7 +1,6 @@
 # %online% and %last_seen% can be used in members.member.lore.
 # %last_seen% uses the format: 22 Aug. 2026. Supports & and &#RRGGBB colors.
 last-seen-output:
-  # Used for %last_seen% while the player is online.
   online: "&#55E36A&lNow"
   never: "&7Never"
 
@@ -76,6 +75,19 @@ settings:
       - ""
       - "&fAllow crew members to chat privately"
       - "&fwith each other using &e/crew chat&f."
+      - ""
+      - "&#f4b52b&l| &fStatus: &#f4b52b%status%"
+      - ""
+      - "&#f4b52b→ &fClick to toggle."
+  friendly-fire:
+    slot: 25
+    enabled-material: LIME_DYE
+    disabled-material: RED_DYE
+    name: "&#e3262e&lFRIENDLY FIRE"
+    lore:
+      - ""
+      - "&fAllow crew members to damage"
+      - "&feach other in PvP."
       - ""
       - "&#f4b52b&l| &fStatus: &#f4b52b%status%"
       - ""
