@@ -162,3 +162,41 @@ manage:
       - "&7Invite a player to your team."
       - ""
       - "&#f4b52b→ &fClick to invite."
+
+# Optional per-menu overrides for the shared Go Back item.
+# Each menu can override slot, material, name and lore independently.
+main:
+  back:
+    slot: 40
+    material: ARROW
+    name: "&#d9a441&l← GO BACK"
+    lore:
+      - "&7Close the teams menu."
+manage:
+  back:
+    slot: 40
+    material: ARROW
+    name: "&#d9a441&l← GO BACK"
+    lore:
+      - "&7Return to the teams menu."
+members:
+  back:
+    slot: 52
+    material: ARROW
+    name: "&#d9a441&l← GO BACK"
+    lore:
+      - "&7Return to team management."
+teams:
+  back:
+    slot: 52
+    material: ARROW
+    name: "&#d9a441&l← GO BACK"
+    lore:
+      - "&7Return to the teams menu."
+settings:
+  back:
+    slot: 40
+    material: ARROW
+    name: "&#d9a441&l← GO BACK"
+    lore:
+      - "&7Return to team management."
