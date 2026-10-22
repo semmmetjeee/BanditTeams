@@ -1,0 +1,25 @@
+# Configure the in-game dialogs used for team creation and invitations.
+# Requires Paper 1.21.8+ and a Minecraft client that supports dialogs.
+create:
+  title: "&#d9a441&lCREATE A TEAM"
+  input:
+    key: team_name
+    label: "Team name (2-10 letters/numbers)"
+    initial: ""
+    max-length: 10
+    width: 300
+  buttons:
+    confirm: "&#67e86b&lCREATE"
+    cancel: "&cCancel"
+
+invite:
+  title: "&#d9a441&lINVITE A PLAYER"
+  input:
+    key: player_name
+    label: "Player username"
+    initial: ""
+    max-length: 16
+    width: 300
+  buttons:
+    confirm: "&#67e86b&lINVITE"
+    cancel: "&cCancel"
