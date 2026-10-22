@@ -1,5 +1,5 @@
 # Instellingen voor de dialogs om teams aan te maken en spelers uit te nodigen.
-# Requires Paper 1.21.8+ and a Minecraft client that supports dialogs.
+# Vereist Paper 1.21.8+ en een Minecraft-client die dialogs ondersteunt.
 create:
   title: "&#d9a441&lTEAM AANMAKEN"
   input:
@@ -22,4 +22,4 @@ invite:
     width: 300
   buttons:
     confirm: "&#67e86b&lUITNODIGEN"
-    cancel: "&cCancel"
+    cancel: "&cAnnuleren"
