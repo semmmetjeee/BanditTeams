@@ -73,6 +73,18 @@ settings:
       - "&#f4b52b&l| &fStatus: &#f4b52b%status%"
       - ""
       - "&#f4b52b→ &fClick to toggle."
+  pvp:
+    slot: 22
+    enabled-material: LIME_DYE
+    disabled-material: RED_DYE
+    name: "&#e3262e&lTEAM PVP"
+    lore:
+      - ""
+      - "&fAllow team members to damage each other."
+      - ""
+      - "&#f4b52b&l| &fStatus: &#f4b52b%status%"
+      - ""
+      - "&#f4b52b→ &fClick to toggle."
   team-chat:
     slot: 23
     enabled-material: LIME_DYE
