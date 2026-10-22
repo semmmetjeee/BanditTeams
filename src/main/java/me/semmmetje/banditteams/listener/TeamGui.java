@@ -61,6 +61,6 @@ public final class TeamGui implements Listener {
   private Team teamAt(int page,int slot){for(int i=0;i<CONTENT.length;i++)if(CONTENT[i]==slot){List<Team> teams=plugin.teams().allTeams().stream().sorted(Comparator.comparing(Team::name,String.CASE_INSENSITIVE_ORDER)).toList();int index=page*CONTENT.length+i;return index<teams.size()?teams.get(index):null;}return null;}
   private Team find(String name){return plugin.teams().allTeams().stream().filter(team->team.name().equalsIgnoreCase(name)).findFirst().orElse(null);}
   private void open(Player player,Holder holder,int page){if(holder.view==View.TEAMS)openTeams(player,page);else{Team team=find(holder.team);if(team!=null)openMembers(player,team,page);}}
-  private enum View{MEMBERS,TEAMS,SETTINGS}
+  private enum View{MAIN,MANAGE,MEMBERS,TEAMS,SETTINGS}
   private record Holder(View view,String team,int page) implements InventoryHolder{@Override public Inventory getInventory(){return null;}}
 }
