@@ -1,25 +1,25 @@
-# Configure the in-game dialogs used for team creation and invitations.
+# Instellingen voor de dialogs om teams aan te maken en spelers uit te nodigen.
 # Requires Paper 1.21.8+ and a Minecraft client that supports dialogs.
 create:
-  title: "&#d9a441&lCREATE A TEAM"
+  title: "&#d9a441&lTEAM AANMAKEN"
   input:
     key: team_name
-    label: "Team name (2-10 letters/numbers)"
+    label: "Teamnaam (2-10 letters/cijfers)"
     initial: ""
     max-length: 10
     width: 300
   buttons:
-    confirm: "&#67e86b&lCREATE"
-    cancel: "&cCancel"
+    confirm: "&#67e86b&lAANMAKEN"
+    cancel: "&cAnnuleren"
 
 invite:
-  title: "&#d9a441&lINVITE A PLAYER"
+  title: "&#d9a441&lSPELER UITNODIGEN"
   input:
     key: player_name
-    label: "Player username"
+    label: "Minecraft-gebruikersnaam"
     initial: ""
     max-length: 16
     width: 300
   buttons:
-    confirm: "&#67e86b&lINVITE"
+    confirm: "&#67e86b&lUITNODIGEN"
     cancel: "&cCancel"
