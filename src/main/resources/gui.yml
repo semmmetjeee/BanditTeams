@@ -80,3 +80,77 @@ settings:
       - "&#f4b52b&l| &fStatus: &#f4b52b%status%"
       - ""
       - "&#f4b52b→ &fClick to toggle."
+
+  
+# Main menu opened by /teams.
+main:
+  rows: 5
+  title: "&#d9a441&lTEAMS"
+  finder:
+    slot: 20
+    material: COMPASS
+    name: "&#d9a441&lTEAMS FINDER"
+    lore:
+      - "&7Browse all existing teams."
+      - ""
+      - "&#f4b52b→ &fClick to browse teams."
+  manage:
+    slot: 24
+    material: CLOCK
+    name: "&#d9a441&lMANAGE TEAM"
+    lore:
+      - "&7Manage your current team."
+      - ""
+      - "&#f4b52b→ &fClick to manage."
+  create:
+    slot: 24
+    material: EMERALD
+    name: "&#67e86b&lCREATE TEAM"
+    lore:
+      - "&7Create your own team."
+      - ""
+      - "&#f4b52b→ &fClick to create."
+
+manage:
+  rows: 5
+  title: "&#d9a441&lMANAGE %team%"
+  settings:
+    slot: 21
+    material: REPEATER
+    name: "&#d9a441&lSETTINGS"
+    lore:
+      - "&7Configure your team settings."
+      - ""
+      - "&#f4b52b→ &fClick to open settings."
+  members:
+    slot: 23
+    material: PLAYER_HEAD
+    name: "&#d9a441&lMEMBERS"
+    lore:
+      - "&7View and manage team members."
+      - ""
+      - "&#f4b52b→ &fClick to view members."
+  invite:
+    slot: 31
+    material: EMERALD
+    name: "&#67e86b&lINVITE MEMBER"
+    lore:
+      - "&7Invite a player to your team."
+      - ""
+      - "&#f4b52b→ &fClick to invite."
+
+members:
+  invite:
+    slot: 45
+    material: EMERALD
+    name: "&#67e86b&lINVITE MEMBER"
+    lore:
+      - "&7Invite another player to your team."
+
+settings:
+  back:
+    slot: 45
+    material: ARROW
+    name: "&#d9a441&lBACK"
+    lore:
+      - "&7Return to team management."
