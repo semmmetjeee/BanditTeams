@@ -99,7 +99,7 @@ settings:
       - ""
       - "&#f4b52b→ &fClick to toggle."
   back:
-    slot: 45
+    slot: 40
     material: ARROW
     name: "&#d9a441&lBACK"
     lore:
