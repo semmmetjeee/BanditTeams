@@ -13,6 +13,9 @@ commands:
     usage: /teams
     aliases: [team]
 permissions:
+  banditteams.spy:
+    description: View private crew chat spy messages
+    default: op
   banditteams.use:
     default: true
   banditteams.admin:
