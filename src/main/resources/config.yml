@@ -39,7 +39,7 @@ messages:
   team-chat-toggled-on: "%prefix%&aCrew chat mode enabled. Your normal messages now go to your crew only."
   team-chat-toggled-off: "%prefix%&7Crew chat mode disabled. Your messages are public again."
   team-chat: "&#d9a441[CREW] &f%player%&8: &f%message%"
-  create-chat: "%prefix%&eType your new crew name in chat. &7(2–10 characters, letters and numbers only)"
+  create-chat: "%prefix%&eType your new team name in chat. &7(2–10 characters, letters and numbers only)"\n  invite-chat: "%prefix%&eType the player name you want to invite in chat."
   settings-updated: "%prefix%&aCrew settings updated."
   invited: "%prefix%&aYou invited &#d9a441%player% &ato crew &#d9a441%team%&a."
   invite-received: "%prefix%&#d9a441%player% &finvited you to crew &#d9a441%team%&f. Type &#d9a441/crew accept %player% &fwithin %duration% seconds."
