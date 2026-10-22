@@ -18,7 +18,7 @@ public final class BanditTeams extends JavaPlugin {
 
   @Override public void onEnable(){
     saveDefaultConfig();saveResource("gui.yml",false);teams=new TeamStore(this);gui=new TeamGui(this);command=new TeamCommand(this);
-    registerCrewCommand();
+    registerCrewCommand();\n    PluginCommand teamsMenu=getCommand("teams");\n    if(teamsMenu!=null){teamsMenu.setExecutor(command);teamsMenu.setTabCompleter(command);}
     PluginCommand reload=getCommand("banditteams");
     if(reload==null){getLogger().severe("Missing /banditteams command.");getServer().getPluginManager().disablePlugin(this);return;}
     reload.setExecutor((sender,unused,label,args)->{
