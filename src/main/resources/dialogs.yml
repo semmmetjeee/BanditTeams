@@ -1,0 +1,25 @@
+# Instellingen voor de dialogs om teams aan te maken en spelers uit te nodigen.
+# Vereist Paper 1.21.8+ en een Minecraft-client die dialogs ondersteunt.
+create:
+  title: "&#d9a441&lTEAM AANMAKEN"
+  input:
+    key: team_name
+    label: "Teamnaam (2-10 letters/cijfers)"
+    initial: ""
+    max-length: 10
+    width: 300
+  buttons:
+    confirm: "&#67e86b&lAANMAKEN"
+    cancel: "&cAnnuleren"
+
+invite:
+  title: "&#d9a441&lSPELER UITNODIGEN"
+  input:
+    key: player_name
+    label: "Minecraft-gebruikersnaam"
+    initial: ""
+    max-length: 16
+    width: 300
+  buttons:
+    confirm: "&#67e86b&lUITNODIGEN"
+    cancel: "&cAnnuleren"

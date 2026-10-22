@@ -5,6 +5,7 @@ import me.semmmetje.banditteams.listener.TeamPvpListener;
 import me.semmmetje.banditteams.listener.TeamGui;
 import me.semmmetje.banditteams.storage.TeamStore;
 import me.semmmetje.banditteams.util.TeamExpansion;
+import me.semmmetje.banditteams.util.TeamDialogs;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -14,16 +15,18 @@ import java.util.Arrays;
 import java.util.List;
 
 public final class BanditTeams extends JavaPlugin {
-  private TeamStore teams; private TeamExpansion expansion; private TeamCommand command; private TeamGui gui; private Command crewCommand;
+  private TeamStore teams; private TeamExpansion expansion; private TeamCommand command; private TeamGui gui; private TeamDialogs dialogs; private Command crewCommand;
 
   @Override public void onEnable(){
-    saveDefaultConfig();saveResource("gui.yml",false);teams=new TeamStore(this);gui=new TeamGui(this);command=new TeamCommand(this);
+    saveDefaultConfig();saveResource("gui.yml",false);saveResource("dialogs.yml",false);teams=new TeamStore(this);gui=new TeamGui(this);dialogs=new TeamDialogs(this);command=new TeamCommand(this);
     registerCrewCommand();
+    PluginCommand teamsMenu=getCommand("teams");
+    if(teamsMenu!=null){teamsMenu.setExecutor(command);teamsMenu.setTabCompleter(command);}
     PluginCommand reload=getCommand("banditteams");
     if(reload==null){getLogger().severe("Missing /banditteams command.");getServer().getPluginManager().disablePlugin(this);return;}
     reload.setExecutor((sender,unused,label,args)->{
       if(!sender.hasPermission("banditteams.admin")){command.send(sender,"no-permission",java.util.Map.of());return true;}
-      if(args.length==1&&args[0].equalsIgnoreCase("reload")){reloadConfig();gui.reload();registerCrewCommand();command.send(sender,"reloaded",java.util.Map.of());return true;}
+      if(args.length==1&&args[0].equalsIgnoreCase("reload")){reloadConfig();gui.reload();dialogs.reload();registerCrewCommand();command.send(sender,"reloaded",java.util.Map.of());return true;}
       if(args.length>=1&&args[0].equalsIgnoreCase("admin")){return command.admin(sender,java.util.Arrays.copyOfRange(args,1,args.length));}
       command.send(sender,"reload-usage",java.util.Map.of());return true;
     });
@@ -48,4 +51,5 @@ public final class BanditTeams extends JavaPlugin {
   public TeamStore teams(){return teams;}
   public TeamCommand command(){return command;}
   public TeamGui gui(){return gui;}
+  public TeamDialogs dialogs(){return dialogs;}
 }

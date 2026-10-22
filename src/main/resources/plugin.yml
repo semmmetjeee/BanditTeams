@@ -6,13 +6,17 @@ author: Semmmetje
 softdepend: [PlaceholderAPI]
 commands:
   banditteams:
-    description: Reload BanditTeams
+    description: Herlaad BanditTeams
     usage: /banditteams reload
+  teams:
+    description: Open het teammenu
+    usage: /teams
+    aliases: [team]
 permissions:
+  banditteams.spy:
+    description: Lees mee met privéteamchat
+    default: op
   banditteams.use:
     default: true
   banditteams.admin:
-    default: op
-  banditteams.spy:
-    description: View private crew chat spy messages
     default: op
