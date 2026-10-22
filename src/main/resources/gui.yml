@@ -148,7 +148,7 @@ main:
     lore:
       - "&7Bekijk alle bestaande teams."
       - ""
-      - "&#f4b52b→ &fClick to browse teams."
+      - "&#f4b52b→ &fKlik om teams te bekijken."
   manage:
     slot: 24
     material: CLOCK
@@ -156,7 +156,7 @@ main:
     lore:
       - "&7Beheer je huidige team."
       - ""
-      - "&#f4b52b→ &fClick to manage."
+      - "&#f4b52b→ &fKlik om je team te beheren."
   create:
     slot: 24
     material: EMERALD
@@ -164,7 +164,7 @@ main:
     lore:
       - "&7Maak je eigen team aan."
       - ""
-      - "&#f4b52b→ &fClick to create."
+      - "&#f4b52b→ &fKlik om een team aan te maken."
 
 manage:
   rows: 5
@@ -182,7 +182,7 @@ manage:
     lore:
       - "&7Pas je teaminstellingen aan."
       - ""
-      - "&#f4b52b→ &fClick to open settings."
+      - "&#f4b52b→ &fKlik om instellingen te openen."
   members:
     slot: 23
     material: PLAYER_HEAD
@@ -190,7 +190,7 @@ manage:
     lore:
       - "&7Bekijk en beheer je teamleden."
       - ""
-      - "&#f4b52b→ &fClick to view members."
+      - "&#f4b52b→ &fKlik om de leden te bekijken."
   invite:
     slot: 31
     material: EMERALD
@@ -198,4 +198,4 @@ manage:
     lore:
       - "&7Nodig iemand uit voor je team."
       - ""
-      - "&#f4b52b→ &fClick to invite."
+      - "&#f4b52b→ &fKlik om iemand uit te nodigen."
