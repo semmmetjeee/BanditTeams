@@ -36,6 +36,12 @@ shared:
 
 members:
   title: "&#d9a441&l%team% MEMBERS"
+  back:
+    slot: 52
+    material: ARROW
+    name: "&#d9a441&l← GO BACK"
+    lore:
+      - "&7Return to team management."
   member:
     name: "&#d9a441%player%"
     lore:
@@ -50,6 +56,12 @@ members:
 
 teams:
   title: "&#d9a441&lALL CREWS"
+  back:
+    slot: 52
+    material: ARROW
+    name: "&#d9a441&l← GO BACK"
+    lore:
+      - "&7Return to the teams menu."
   team:
     name: "&#d9a441[%team%]"
     lore:
@@ -67,6 +79,12 @@ teams:
 settings:
   rows: 5
   title: "&rCrew Settings"
+  back:
+    slot: 40
+    material: ARROW
+    name: "&#d9a441&l← GO BACK"
+    lore:
+      - "&7Return to team management."
   requests:
     slot: 21
     enabled-material: LIME_DYE
@@ -110,6 +128,12 @@ settings:
 main:
   rows: 5
   title: "&#d9a441&lTEAMS"
+  back:
+    slot: 40
+    material: ARROW
+    name: "&#d9a441&l← GO BACK"
+    lore:
+      - "&7Close the teams menu."
   finder:
     slot: 20
     material: COMPASS
@@ -138,6 +162,12 @@ main:
 manage:
   rows: 5
   title: "&#d9a441&lMANAGE %team%"
+  back:
+    slot: 40
+    material: ARROW
+    name: "&#d9a441&l← GO BACK"
+    lore:
+      - "&7Return to the teams menu."
   settings:
     slot: 21
     material: REPEATER
@@ -162,41 +192,3 @@ manage:
       - "&7Invite a player to your team."
       - ""
       - "&#f4b52b→ &fClick to invite."
-
-# Optional per-menu overrides for the shared Go Back item.
-# Each menu can override slot, material, name and lore independently.
-main:
-  back:
-    slot: 40
-    material: ARROW
-    name: "&#d9a441&l← GO BACK"
-    lore:
-      - "&7Close the teams menu."
-manage:
-  back:
-    slot: 40
-    material: ARROW
-    name: "&#d9a441&l← GO BACK"
-    lore:
-      - "&7Return to the teams menu."
-members:
-  back:
-    slot: 52
-    material: ARROW
-    name: "&#d9a441&l← GO BACK"
-    lore:
-      - "&7Return to team management."
-teams:
-  back:
-    slot: 52
-    material: ARROW
-    name: "&#d9a441&l← GO BACK"
-    lore:
-      - "&7Return to the teams menu."
-settings:
-  back:
-    slot: 40
-    material: ARROW
-    name: "&#d9a441&l← GO BACK"
-    lore:
-      - "&7Return to team management."
